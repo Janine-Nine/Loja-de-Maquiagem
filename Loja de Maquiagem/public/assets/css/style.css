@@ -1,0 +1,703 @@
+/* ======== ESTILO GERAL ======== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #fff0f7 0%, #ffe6f0 100%);
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* ======== HEADER ======== */
+header {
+  background: #ff1493;
+  color: #fff;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ======== BANNER ======== */
+.banner {
+  background: #ffe6f5;
+  color: #c71585;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+/* ======== PRODUTOS ======== */
+.produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 10%;
+}
+
+.produto {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 260px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.produto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.produto img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.produto h3 {
+  color: #8b008b;
+  margin: 15px 0 5px;
+  font-size: 1.1rem;
+}
+
+.produto p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.preco {
+  color: #ff1493;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.acoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.acoes input {
+  width: 60px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.acoes button {
+  background: #ff1493;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.acoes button:hover {
+  background: #d4137a;
+}
+
+/* ======== CARRINHO ======== */
+#carrinho {
+  padding: 40px 10%;
+  background: #fff0f8;
+  border-top: 2px solid #ffb6c1;
+}
+
+#carrinho h2 {
+  text-align: center;
+  color: #8b008b;
+  margin-bottom: 20px;
+}
+
+#cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#cart-table th, #cart-table td {
+  border: 1px solid #ffd1e8;
+  padding: 10px;
+  text-align: center;
+}
+
+#cart-table th {
+  background: #ffb6c1;
+  color: #fff;
+}
+
+#checkout-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 30px;
+  background: #ff1493;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+#checkout-btn:hover {
+  background: #c71585;
+}
+
+/* ======== TOAST ======== */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+}
+
+.toast {
+  background: #ff1493;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin-top: 10px;
+  animation: fadeInOut 3s ease;
+}
+
+.toast.error {
+  background: #dc3545;
+}
+
+@keyframes fadeInOut {
+  0% {opacity: 0; transform: translateY(-10px);}
+  10% {opacity: 1; transform: translateY(0);}
+  90% {opacity: 1;}
+  100% {opacity: 0; transform: translateY(-10px);}
+}
+
+/* ======== LOADING ======== */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.loading::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ff1493;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {transform: rotate(360deg);}
+}
+
+/* ======== CARRINHO FLUTUANTE ======== */
+.cart-floating {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #ff1493;
+  color: #fff;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+  z-index: 1000;
+}
+
+.cart-floating:hover {
+  transform: scale(1.1);
+}
+
+.cart-floating .cart-count {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: #fff;
+  color: #ff1493;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  font-weight: bold;
+}
+
+/* ======== FOOTER ======== */
+footer {
+  background: #8b008b;
+  color: #fff;
+  padding: 40px 10%;
+  margin-top: 50px;
+}
+
+footer h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin-bottom: 8px;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer ul li a:hover {
+  color: #ffb6c1;
+}
+
+.social-links a {
+  color: #fff;
+  margin-right: 10px;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #ffb6c1;
+}
+
+footer .text-center {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .produtos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .produto {
+    width: 85%;
+  }
+}
+
+/* ======== AJUSTES PARA HTML REORGANIZADO (.novos-produtos) ======== */
+.novos-produtos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 20px 10%;
+}
+
+.novos-produtos > div {
+  max-width: 220px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  padding: 20px;
+  text-align: center;
+}
+
+.novos-produtos img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+.novos-produtos h3 {
+  color: #8b008b;
+  margin: 15px 0 8px;
+  font-size: 1.1rem;
+}
+
+.novos-produtos p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.novos-produtos div > button,
+.novos-produtos button {
+  background: linear-gradient(135deg, #ff69b4 0%, #8b008b 100%) !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  cursor: pointer !important;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.novos-produtos button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(139,0,139,0.18);
+  background: linear-gradient(135deg, #ff1493 0%, #c71585 100%) !important;
+}
+
+.novos-produtos .preco,
+.novos-produtos div[style*="R$"] {
+  color: #ff1493;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 10px 0;
+}
+
+/* Ajustes pequenos para inputs e ações */
+.novos-produtos input[type="number"],
+.acoes input[type="number"] {
+  width: 52px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+/* Garante legibilidade no footer quando houver textos longos */
+/* (sem regras duplicadas de `footer` para evitar conflitos com blocos existentes) */
+
+/* Estilos para classes aplicadas no HTML reorganizado */
+.produto-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  padding: 20px;
+  max-width: 220px;
+  text-align: center;
+}
+
+.produto-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+.produto-title {
+  color: #8b008b;
+  margin: 15px 0 8px;
+  font-size: 1.1rem;
+}
+
+.produto-desc {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.produto-price {
+  color: #ff1493;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 10px 0;
+}
+
+.btn-adicionar {
+  background: linear-gradient(135deg, #ff69b4 0%, #8b008b 100%);
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-adicionar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(139,0,139,0.18);
+  background: linear-gradient(135deg, #ff1493 0%, #c71585 100%);
+}
+
+/* ======== UTILITÁRIAS MODERNAS ======== */
+.bg-gradient-pink {
+  background: linear-gradient(135deg, #ff69b4 0%, #8b008b 100%) !important;
+}
+.text-pink {
+  color: #ff1493 !important;
+}
+.btn-gradient-pink {
+  background: linear-gradient(135deg, #ff69b4 0%, #8b008b 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 25px !important;
+  font-weight: 600;
+  padding: 10px 24px !important;
+  box-shadow: 0 4px 15px rgba(139,0,139,0.12);
+  transition: background 0.3s, box-shadow 0.3s, transform 0.18s;
+}
+.btn-gradient-pink:hover {
+  background: linear-gradient(135deg, #ff1493 0%, #c71585 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(139,0,139,0.18);
+}
+
+/* ======== FORMULÁRIO DE PAGAMENTO ======== */
+.form-label {
+  font-weight: 500;
+  color: #8b008b;
+  margin-bottom: 6px;
+}
+.form-control {
+  border: 1.5px solid #ffb6c1;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fff;
+}
+.form-control:focus {
+  border-color: #ff1493;
+  box-shadow: 0 0 0 2px #ffe6f0;
+}
+.form-control.error {
+  border-color: #dc3545;
+  background: #fff0f0;
+}
+.form-select {
+  border: 1.5px solid #ffb6c1;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  background: #fff;
+  color: #333;
+}
+.form-select:focus {
+  border-color: #ff1493;
+  box-shadow: 0 0 0 2px #ffe6f0;
+}
+.btn-gradient-pink.btn-lg {
+  font-size: 1.15rem;
+  padding: 14px 0;
+}
+
+/* Espaçamento entre campos */
+form .row.g-4 > div {
+  margin-bottom: 18px;
+}
+
+/* Mensagem de erro/sucesso do formulário */
+.form-msg {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #dc3545;
+  font-weight: 500;
+  text-align: center;
+}
+.form-msg.success {
+  color: #28a745;
+}
+
+/* ======== CENTRALIZAÇÃO NAVBAR ======== */
+.navbar {
+  justify-content: center !important;
+  text-align: center;
+}
+.navbar .container {
+  justify-content: center !important;
+  text-align: center;
+}
+.navbar-nav {
+  margin: 0 auto !important;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+.navbar-brand {
+  margin: 0 auto;
+  display: block;
+  font-size: 2rem;
+}
+
+/* ======== CENTRALIZAÇÃO BANNER PRODUTOS ======== */
+.banner-principal {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0 40px 0;
+}
+.banner-principal h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.banner-principal p {
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+}
+.banner-principal .btn {
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* ======== CENTRALIZAÇÃO TÍTULOS PRODUTOS ======== */
+.produtos-grid, .novidades .produtos-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.produtos-grid .produto-card, .novidades .produto-card {
+  margin: 0 auto;
+}
+.text-center {
+  text-align: center !important;
+}
+
+/* ======== CENTRALIZAÇÃO FORMULÁRIO ======== */
+section.container form {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(139,0,139,0.10);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section.container form .row.g-4 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+section.container form .row.g-4 > div {
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+section.container form .row.mt-4 {
+  width: 100%;
+}
+section.container form .btn {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* ======== LOGIN (login.php) ======== */
+.login-container {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+.login-box {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  border: 1px solid rgba(139,0,139,0.06);
+}
+.login-box h2 {
+  color: #8b008b;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.login-box p.lead {
+  text-align: center;
+  color: #666;
+  margin-bottom: 18px;
+}
+.login-box .form-group {
+  margin-bottom: 14px;
+}
+.login-box .form-control {
+  width: 100%;
+  border-radius: 10px;
+  padding: 12px 14px;
+  border: 1.5px solid #f0cfe0;
+}
+.login-box .form-control:focus {
+  border-color: #ff1493;
+  box-shadow: 0 0 0 4px rgba(255,20,147,0.06);
+}
+.login-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+.login-actions .btn {
+  flex: 1 1 auto;
+}
+.login-actions .forgot-link {
+  color: #8b008b;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.login-actions .forgot-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+  .login-box { padding: 20px; }
+  .login-actions { flex-direction: column; gap: 10px; }
+}

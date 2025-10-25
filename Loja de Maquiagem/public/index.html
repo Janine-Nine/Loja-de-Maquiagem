@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja de Maquiagem</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar Moderno -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-pink fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Loja de Maquiagem 💄</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#comprar">Produtos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#carrinho">🛒 Carrinho</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.php">👩‍💼 Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Moderno -->
+  <header class="banner-principal text-center py-5 mt-5">
+    <h1 class="display-5 fw-bold text-pink">Sua loja virtual de maquiagem que chega na sua casa 💋</h1>
+    <p class="lead text-muted">Beleza, brilho e confiança em cada produto.</p>
+    <a href="#comprar" class="btn btn-gradient-pink mt-3">Compre Agora</a>
+  </header>
+
+  <!-- Produtos Modernos -->
+  <main>
+    <section class="container my-5" id="comprar">
+      <h2 class="text-center mb-4 text-pink">✨ Destaques da Semana ✨</h2>
+      <div class="produtos-grid">
+        <div class="produto-card">
+          <img src="assets/img/batom.jpg" alt="Batom Vermelho Matte" class="produto-img">
+          <h3 class="produto-title">Batom Vermelho Matte</h3>
+          <p class="produto-desc">Textura aveludada e alta fixação</p>
+          <div class="produto-price">R$ 49,90</div>
+          <button class="btn-adicionar">Adicionar ao carrinho</button>
+        </div>
+        <div class="produto-card">
+          <img src="assets/img/base.jpg" alt="Base Líquida HD" class="produto-img">
+          <h3 class="produto-title">Base Líquida HD</h3>
+          <p class="produto-desc">Cobertura leve e acabamento natural</p>
+          <div class="produto-price">R$ 79,90</div>
+          <button class="btn-adicionar">Adicionar ao carrinho</button>
+        </div>
+        <div class="produto-card">
+          <img src="assets/img/sombra.jpg" alt="Sombra Glitter Rose" class="produto-img">
+          <h3 class="produto-title">Sombra Glitter Rose</h3>
+          <p class="produto-desc">Brilho intenso e fácil aplicação</p>
+          <div class="produto-price">R$ 39,90</div>
+          <button class="btn-adicionar">Adicionar ao carrinho</button>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="container novidades my-5">
+      <h2 class="text-center mb-4 text-pink">Novidades!</h2>
+      <div class="produtos-grid">
+        <div class="produto-card">
+          <img src="assets/img/esmalte.jpg" alt="Esmalte Vermelho Glamour" class="produto-img">
+          <h3 class="produto-title">Esmalte Vermelho Glamour</h3>
+          <p class="produto-desc">Esmalte vermelho vibrante de longa duração</p>
+          <div class="produto-price">R$ 24,90</div>
+          <button class="btn-adicionar">Adicionar ao carrinho</button>
+        </div>
+        <div class="produto-card">
+          <img src="assets/img/perfume.jpg" alt="Perfume Floral Sedução" class="produto-img">
+          <h3 class="produto-title">Perfume Sedução Red</h3>
+          <p class="produto-desc">Fragrância floral sofisticada com notas de jasmim e rosas</p>
+          <div class="produto-price">R$ 159,90</div>
+          <button class="btn-adicionar">Adicionar ao carrinho</button>
+        </div>
+        <div class="produto-card">
+          <img src="assets/img/mascara.jpg" alt="Máscara de Cílios" class="produto-img">
+          <h3 class="produto-title">Máscara de Cílios</h3>
+          <p class="produto-desc">Máscara para volume intenso</p>
+          <div class="produto-price">R$ 45,90</div>
+          <button class="btn-adicionar">Adicionar ao carrinho</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carrinho Moderno -->
+    <section class="container my-5" id="carrinho">
+      <h2 class="text-center mb-4 text-pink">🛒 Seu Carrinho</h2>
+      <div class="cart-box p-4 rounded shadow-sm bg-white">
+        <table class="table table-hover align-middle" id="cart-table">
+          <thead class="table-light">
+            <tr>
+              <th>Produto</th>
+              <th>Qtd</th>
+              <th>Preço</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cart-body">
+            <!-- Itens do carrinho via JS -->
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-end">
+          <span class="fw-bold fs-5">Total: R$ <span id="total">0,00</span></span>
+        </div>
+      </div>
+      <!-- Formulário para adicionar produto -->
+      <div class="add-produto-box mt-4 p-4 rounded bg-light shadow-sm">
+        <h3 class="mb-3 text-pink">➕ Adicionar Produto ao Carrinho</h3>
+        <form id="form-add" class="row g-3">
+          <div class="col-md-5">
+            <input type="text" id="nome-produto" class="form-control" placeholder="Nome do Produto" required>
+          </div>
+          <div class="col-md-3">
+            <input type="number" id="preco-produto" class="form-control" step="0.01" placeholder="Preço (R$)" required>
+          </div>
+          <div class="col-md-2">
+            <input type="number" id="qtd-produto" class="form-control" min="1" value="1" required>
+          </div>
+          <div class="col-md-2 d-grid">
+            <button type="submit" class="btn btn-gradient-pink">Adicionar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+    <!-- Formulário de Pagamento Moderno -->
+    <section class="container my-5 p-4 border rounded shadow-sm bg-light">
+      <h2 class="text-center mb-4 text-pink">💳 Finalizar Compra</h2>
+      <form action="checkout.php" method="POST">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <label for="nome" class="form-label">Nome Completo</label>
+            <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite seu nome completo" required>
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="seu@email.com" required>
+          </div>
+          <div class="col-md-8">
+            <label for="endereco" class="form-label">Endereço</label>
+            <input type="text" name="endereco" id="endereco" class="form-control" placeholder="Rua, número, bairro, cidade" required>
+          </div>
+          <div class="col-md-4">
+            <label for="pagamento" class="form-label">Forma de Pagamento</label>
+            <select class="form-select" name="pagamento" id="pagamento" required>
+              <option value="">Selecione...</option>
+              <option value="cartao">Cartão de Crédito</option>
+              <option value="pix">PIX</option>
+              <option value="boleto">Boleto Bancário</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12 d-grid">
+            <button type="submit" class="btn btn-gradient-pink btn-lg">Finalizar Pedido 🛍️</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Modal de Login -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="loginModalLabel">Entrar na Conta</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <form action="login.php" method="post">
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Senha</label>
+            <input type="password" name="senha" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-dark w-100">Entrar</button>
+        </form>
+        <p class="text-center mt-3">
+          Não tem conta? <a href="register.php" class="text-decoration-none">Crie aqui</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Footer Moderno -->
+  <footer class="footer bg-gradient-pink text-white mt-5 py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>Sobre Nós</h5>
+          <p>Sua loja de maquiagem preferida com os melhores produtos para sua beleza.</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Links Úteis</h5>
+          <ul class="list-unstyled">
+            <li><a href="#comprar" class="text-white">Produtos</a></li>
+            <li><a href="#" class="text-white">Promoções</a></li>
+            <li><a href="#" class="text-white">Contato</a></li>
+            <li><a href="#" class="text-white">Política de Privacidade</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Redes Sociais</h5>
+          <div class="social-links">
+            <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white me-2"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12 text-center">
+          © 2025 Loja de Maquiagem - Todos os direitos reservados
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Sistema de Toast
+    function showToast(message, type = 'success') {
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+      toast.innerHTML = message;
+      document.getElementById('toast-container').appendChild(toast);
+      
+      setTimeout(() => {
+        toast.remove();
+      }, 3000);
+    }
+
+    // Loading
+    function showLoading() {
+      document.getElementById('loading-overlay').style.display = 'flex';
+    }
+
+    function hideLoading() {
+      document.getElementById('loading-overlay').style.display = 'none';
+    }
+
+    // Função de compatibilidade para os inputs da tabela do carrinho
+    function updateTotals() {
+      const rows = document.querySelectorAll('#cart-body tr');
+      let total = 0;
+      rows.forEach(row => {
+        const qtyInput = row.querySelector('input[type="number"].qty');
+        const priceEl = row.querySelector('.price');
+        const totalElRow = row.querySelector('.total');
+        if (!qtyInput || !priceEl || !totalElRow) return;
+        const qty = parseInt(qtyInput.value) || 0;
+        const priceText = priceEl.textContent.replace(/[R$\s\.]/g, '').replace(',', '.');
+        const price = parseFloat(priceText) || 0;
+        const subtotal = qty * price;
+        total += subtotal;
+        totalElRow.textContent = `R$ ${subtotal.toFixed(2)}`;
+      });
+      const totalSpan = document.getElementById('total');
+      if (totalSpan) totalSpan.textContent = total.toFixed(2);
+    }
+
+    // Carrinho Flutuante
+    document.getElementById('cart-floating').addEventListener('click', function() {
+      document.getElementById('carrinho').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Atualizar contador do carrinho
+    function updateCartCount(count) {
+      document.querySelector('.cart-floating .cart-count').textContent = count;
+      document.getElementById('cart-count').textContent = count;
+    }
+
+    // Exemplo de uso do Toast
+    document.addEventListener('DOMContentLoaded', function() {
+      hideLoading(); // Esconde o loading inicial
+      updateTotals();
+      showToast('Bem-vindo à Loja de Maquiagem! 💄');
+    });
+  </script>
+</body>
+</html>
