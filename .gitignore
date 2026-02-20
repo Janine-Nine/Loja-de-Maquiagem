@@ -1,25 +1,67 @@
-# CakePHP 3
+# ==============================
+# SISTEMA OPERACIONAL
+# ==============================
+.DS_Store
+Thumbs.db
 
-/vendor/*
-/config/app.php
+# ==============================
+# EDITORES / IDEs
+# ==============================
+.vscode/
+.idea/
+*.swp
+*.swo
 
-/tmp/cache/models/*
-!/tmp/cache/models/empty
-/tmp/cache/persistent/*
-!/tmp/cache/persistent/empty
-/tmp/cache/views/*
-!/tmp/cache/views/empty
-/tmp/sessions/*
-!/tmp/sessions/empty
-/tmp/tests/*
-!/tmp/tests/empty
+# ==============================
+# DEPENDÊNCIAS PHP
+# ==============================
+vendor/
+composer.lock
 
-/logs/*
-!/logs/empty
+# ==============================
+# ARQUIVOS DE CONFIGURAÇÃO LOCAL
+# ==============================
+.env
+.env.local
+.env.*
+config.local.php
 
-# CakePHP 2
+# ==============================
+# UPLOADS (IMAGENS DE PRODUTOS)
+# ==============================
+src/imagens/*
+!src/imagens/.gitkeep
 
-/app/tmp/*
-/app/Config/core.php
-/app/Config/database.php
-/vendors/*
+# ==============================
+# LOGS
+# ==============================
+*.log
+logs/
+docker/logs/
+
+# ==============================
+# CACHE
+# ==============================
+cache/
+tmp/
+*.cache
+
+# ==============================
+# DOCKER
+# ==============================
+docker/mysql/data/
+docker-data/
+*.pid
+
+# ==============================
+# BANCO DE DADOS
+# ==============================
+*.sql
+*.sqlite
+*.db
+
+# ==============================
+# BACKUPS
+# ==============================
+*.bak
+*.backup
