@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Maquiagem</title>
+    <link rel="stylesheet" href="../css/custom-bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Beauty Store</a>
+            <div class="cart-container">
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <span class="cart-text">Seu Carrinho</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <img src="../img/banner-principal.jpg" alt="Banner Principal" class="banner">
+
+        <h2 class="destaques-titulo">Novidades e Destaques</h2>
+        <section class="destaques">
+            <div class="destaque-item">
+                <img src="../img/destaque1.jpg" alt="Promoção Especial">
+                <h3>Promoção Especial</h3>
+            </div>
+            <div class="destaque-item">
+                <img src="../img/destaque2.jpg" alt="Novidades">
+                <h3>Novidades</h3>
+            </div>
+            <div class="destaque-item">
+                <img src="../img/destaque3.jpg" alt="Mais Vendidos">
+                <h3>Mais Vendidos</h3>
+            </div>
+        </section>
+
+        <section class="produtos-container">
+            <!-- Exemplo de produto - será multiplicado via JavaScript -->
+            <article class="produto">
+                <img src="../img/produto1.jpg" alt="Produto 1" class="produto-imagem">
+                <div class="produto-info">
+                    <h3 class="produto-titulo">Base Líquida Ultra Coverage</h3>
+                    <p>Cobertura de longa duração com acabamento matte</p>
+                    <div class="produto-preco">R$ 89,90</div>
+                    <button class="btn-adicionar-carrinho">Adicionar ao Carrinho</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre Nós</h4>
+                <p>Sua loja de beleza favorita com os melhores produtos e preços.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>Email: contato@beautystore.com</p>
+                <p>Telefone: (11) 99999-9999</p>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal do Carrinho -->
+    <div class="modal fade" id="carrinhoModal" tabindex="-1" aria-labelledby="carrinhoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carrinhoModalLabel">
+                        <i class="fas fa-shopping-cart me-2"></i>Seu Carrinho
+                        <span class="badge bg-accent ms-2" id="carrinhoQuantidadeTotal">0 itens</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="carrinhoVazio" class="text-center py-5 d-none">
+                        <i class="fas fa-shopping-basket fa-3x mb-3 text-muted"></i>
+                        <h4>Seu carrinho está vazio</h4>
+                        <p class="text-muted">Explore nossa loja e adicione produtos incríveis!</p>
+                        <button class="btn btn-primary mt-3" data-bs-dismiss="modal">Começar a Comprar</button>
+                    </div>
+                    
+                    <div id="carrinhoConteudo">
+                        <div class="table-responsive">
+                            <table class="table table-hover carrinho-table">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">Produto</th>
+                                        <th scope="col" class="text-center">Qtd</th>
+                                        <th scope="col" class="text-end">Preço</th>
+                                        <th scope="col" class="text-end">Subtotal</th>
+                                        <th scope="col" class="text-center">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="carrinhoItens">
+                                    <!-- Itens do carrinho serão inseridos aqui via JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="carrinho-resumo">
+                            <div class="cupom-desconto mb-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="cupomInput" placeholder="Código do cupom">
+                                    <button class="btn btn-outline-primary" type="button" id="aplicarCupom">Aplicar</button>
+                                </div>
+                            </div>
+                            
+                            <table class="table table-sm">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-end fw-bold">Subtotal:</td>
+                                        <td class="text-end" style="width: 150px">R$ <span id="subtotalCarrinho">0,00</span></td>
+                                    </tr>
+                                    <tr id="linhaDesconto" class="d-none text-success">
+                                        <td class="text-end fw-bold">Desconto:</td>
+                                        <td class="text-end">-R$ <span id="descontoCarrinho">0,00</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-end fw-bold">Frete:</td>
+                                        <td class="text-end">R$ <span id="freteCarrinho">0,00</span></td>
+                                    </tr>
+                                    <tr class="table-active">
+                                        <td class="text-end fw-bold">Total:</td>
+                                        <td class="text-end fw-bold fs-5">R$ <span id="totalCarrinho">0,00</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="frete-info small text-muted text-center mt-2">
+                                <i class="fas fa-truck me-1"></i> Frete grátis para compras acima de R$ 200,00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <div class="pagamento-info small text-muted">
+                        <i class="fas fa-lock me-1"></i> Pagamento 100% seguro
+                        <span class="mx-2">|</span>
+                        <i class="far fa-credit-card me-1"></i> Até 12x sem juros
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-outline-secondary me-2" data-bs-dismiss="modal">
+                            <i class="fas fa-arrow-left me-1"></i> Continuar Comprando
+                        </button>
+                        <button type="button" class="btn btn-primary" id="finalizarCompra">
+                            <i class="fas fa-check me-1"></i> Finalizar Compra
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>
