@@ -3,6 +3,7 @@
 # ==============================
 .DS_Store
 Thumbs.db
+Desktop.ini
 
 # ==============================
 # EDITORES / IDEs
@@ -11,6 +12,8 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+*.sublime-workspace
+*.sublime-project
 
 # ==============================
 # DEPENDÊNCIAS PHP
@@ -31,6 +34,7 @@ config.local.php
 # ==============================
 src/imagens/*
 !src/imagens/.gitkeep
+!src/imagens/.gitignore
 
 # ==============================
 # LOGS
@@ -45,6 +49,8 @@ docker/logs/
 cache/
 tmp/
 *.cache
+*.tmp
+*.temp
 
 # ==============================
 # DOCKER
@@ -65,3 +71,11 @@ docker-data/
 # ==============================
 *.bak
 *.backup
+
+# ==============================
+# ARQUIVOS COMPACTADOS
+# ==============================
+*.zip
+*.tar
+*.gz
+*.rar
